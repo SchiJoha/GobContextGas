@@ -671,14 +671,25 @@ struct
   let strengthening_enabled = GobConfig.get_bool "ana.apron.strengthening"
 
   let join x y =
+    M.tracel "apronJoin" "join x: %a\n" pretty x;
+    M.tracel "apronJoin" "join y: %a\n" pretty y;
     (* just to optimize joining folds, which start with bot *)
-    if is_bot_env x then (* TODO: also for non-empty env *)
-      y
+    if is_bot_env x then (* TODO: also for non-empty env *)      
+    (M.tracel "apronJoin" "res y: %a\n" pretty y;
+      y)
     else if is_bot_env y then (* TODO: also for non-empty env *)
-      x
+      (M.tracel "apronJoin" "res x: %a\n" pretty x;
+      x)
+    else if is_top_env x then (* TODO: also for non-empty env *)      
+      (M.tracel "apronJoin" "res y: %a\n" pretty y;
+        y)
+      else if is_top_env y then (* TODO: also for non-empty env *)
+        (M.tracel "apronJoin" "res x: %a\n" pretty x;
+        x)
     else (
       if M.tracing then M.traceli "apron" "join %a %a\n" pretty x pretty y;
       let j = join x y in
+      M.tracel "apronJoin" "join j: %a\n" pretty j;
       if M.tracing then M.trace "apron" "j = %a\n" pretty j;
       let j =
         if strengthening_enabled then (* TODO: skip if same envs? *)
@@ -687,6 +698,7 @@ struct
           j
       in
       if M.tracing then M.traceu "apron" "-> %a\n" pretty j;
+      M.tracel "apronJoin" "res j: %a\n" pretty j;
       j
     )
 
