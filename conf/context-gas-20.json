@@ -30,7 +30,8 @@
       "symb_locks",
       "region",
       "thread",
-      "threadJoins"
+      "threadJoins",      
+      "taintPartialContexts"
     ],
     "path_sens": [
       "mutex",
@@ -44,7 +45,7 @@
     "context": {
       "widen": false,
       "ctx_gas": true,
-      "ctx_gas_value": 30
+      "ctx_gas_value": 20
     },
     "malloc": {
       "wrappers": [
@@ -80,7 +81,6 @@
         "mallocWrappers",
         "enums",
         "congruence",
-        "octagon",
         "wideningThresholds",
         "loopUnrollHeuristic",
         "memsafetySpecification",

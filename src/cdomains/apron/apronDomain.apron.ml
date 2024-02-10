@@ -674,18 +674,10 @@ struct
     M.tracel "apronJoin" "join x: %a\n" pretty x;
     M.tracel "apronJoin" "join y: %a\n" pretty y;
     (* just to optimize joining folds, which start with bot *)
-    if is_bot_env x then (* TODO: also for non-empty env *)      
-    (M.tracel "apronJoin" "res y: %a\n" pretty y;
-      y)
-    else if is_bot_env y then (* TODO: also for non-empty env *)
-      (M.tracel "apronJoin" "res x: %a\n" pretty x;
-      x)
-    else if is_top_env x then (* TODO: also for non-empty env *)      
-      (M.tracel "apronJoin" "res y: %a\n" pretty y;
-        y)
-      else if is_top_env y then (* TODO: also for non-empty env *)
-        (M.tracel "apronJoin" "res x: %a\n" pretty x;
-        x)
+    if is_bot x then (* TODO: also for non-empty env *)
+      y
+    else if is_bot y then (* TODO: also for non-empty env *)
+      x
     else (
       if M.tracing then M.traceli "apron" "join %a %a\n" pretty x pretty y;
       let j = join x y in

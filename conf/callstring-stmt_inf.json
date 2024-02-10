@@ -31,6 +31,7 @@
       "region",
       "thread",
       "threadJoins",
+      "taintPartialContexts",
       "callstring_stmt"
     ],
     "path_sens": [
@@ -45,7 +46,7 @@
     "context": {
       "widen": false,
       "ctx_gas": false,
-      "callStack_height": 10
+      "inf_callStack": true
     },
     "malloc": {
       "wrappers": [
@@ -81,7 +82,6 @@
         "mallocWrappers",
         "enums",
         "congruence",
-        "octagon",
         "wideningThresholds",
         "loopUnrollHeuristic",
         "memsafetySpecification",

@@ -31,7 +31,7 @@
       "region",
       "thread",
       "threadJoins",
-      "loopfreeCallstring"
+      "taintPartialContexts"
     ],
     "path_sens": [
       "mutex",
@@ -82,7 +82,6 @@
         "mallocWrappers",
         "enums",
         "congruence",
-        "octagon",
         "wideningThresholds",
         "loopUnrollHeuristic",
         "memsafetySpecification",
