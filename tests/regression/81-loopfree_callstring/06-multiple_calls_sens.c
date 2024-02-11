@@ -46,6 +46,9 @@ int main(void)
     // main -> f(3) -> ... -> f(0) -> return 11
     // [main, f] and [main] {f}
     __goblint_check(f(3) == 11);
+    /*
+    contexts for f: [main, f] and [main] {f} and [main] {f} and [main] {f}
+    */
 
     // main -> g(3) -> f(2) -> f(1) -> f(0) -> return 11
     // [main, g, f] and [main, g] {f}

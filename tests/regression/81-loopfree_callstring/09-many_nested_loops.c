@@ -53,11 +53,7 @@ int g(int i)
     {
         return a(2);
     }
-    if (i == 2)
-    {
-        return b(20);
-    }
-    return 2;
+    return b(20);
 }
 
 int m(int i)
@@ -75,8 +71,8 @@ int main(void)
     // h:       [main, m, g] {f} [h]
     // g:       [main, m] {g, f, h}
     // a:       [main, m] {g, f, h} [a]
-    // b:       [main, m] {g, f, h} [a, b] 
-    // c:       [main, m] {g, f, h} [a, b, c] 
+    // b:       [main, m] {g, f, h} [a, b]
+    // c:       [main, m] {g, f, h} [a, b, c]
     // g, b, c: [main, m] {g, f, h, a, b, c}
     __goblint_check(m(4) == 4);
 }

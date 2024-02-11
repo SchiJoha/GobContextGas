@@ -1,4 +1,4 @@
-//PARAM: --set "ana.activated[+]" loopfree_callstring --enable ana.int.interval_set
+// PARAM: --set "ana.activated[+]" loopfree_callstring --enable ana.int.interval_set
 
 int f(int i);
 
@@ -20,6 +20,9 @@ int main()
 {
     // main -> f(7) -> g(6) -> f(5) -> ... -> f(1) -> g(0) -> return 2
     // [main, f, g] and [main] {f, g}
-    __goblint_check(f(7)==2);
+    __goblint_check(f(7) == 2);
     return 0;
+    /*
+    contexts for g: [main, f, g] and [main] {f,g} and [main] {f,g} and [main] {f,g}
+    */
 }
