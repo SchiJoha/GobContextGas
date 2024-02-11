@@ -22,4 +22,7 @@ int main()
     // [main, f, g] and [main] {f, g}
     __goblint_check(f(7) == 2);
     return 0;
+    /*
+    contexts for g: [main, f, g] and [main] {f,g} and [main] {f,g} and [main] {f,g}
+    */
 }

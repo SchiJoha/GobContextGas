@@ -27,4 +27,7 @@ int main(void)
     // main -> f(9) -> g(8) -> f(7) -> ... -> g(2) -> f(1) -> g(0) -> return 2
     // [main, f, g] and [main] {f, g}
     __goblint_check(f(9) == 2); // UNKNOWN
+    /*
+    contexts for g: [main, f, g] and [main] {f,g} and [main] {f,g} and [main] {f,g} and [main] {f,g}
+    */
 }

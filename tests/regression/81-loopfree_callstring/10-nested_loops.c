@@ -29,4 +29,8 @@ int main(void)
     // main -> f(4) -> f(3) -> ... -> f(0) -> g(2) -> h(2) -> return 3
     // [main] {f} [g,h]
     __goblint_check(f(4) == 3); // UNKNOWN
+    
+    /*__goblint_check(f(3) == 3); is working
+    contexts for f: [main, f] and [main] {f} and [main] {f} and [main] {f}
+    */
 }
